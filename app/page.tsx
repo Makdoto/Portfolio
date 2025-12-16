@@ -30,8 +30,8 @@ export default function Home() {
               <div className="flex gap-3 mt-4 justify-center sm:justify-start">
                 {/* <button className="px-4 py-1.5 bg-white text-black text-sm font-bold rounded-full hover:bg-purple-400 transition-colors">Resume</button> */}
                 <a 
-                  href="/resume.pdf" 
-                  download="Mark_Fulmentera_Resume.pdf"
+                  href="/Fulmentera_Mark_Joseph_Resume.pdf" 
+                  download="Fulmentera_Mark_Joseph_Resume.pdf"
                   className="px-4 py-1.5 bg-white text-black text-sm font-bold rounded-full hover:bg-purple-400 transition-colors inline-flex items-center gap-2"
                 >
                   <span>Resume</span>
@@ -202,7 +202,7 @@ export default function Home() {
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
               </a>
             </div>
-            <h3 className="text-xl font-bold mb-2">Quiz Mo' To</h3>
+            <h3 className="text-xl font-bold mb-2">Quiz Mo&apos; To</h3>
             <p className="text-gray-400 text-sm mb-4">A full-stack quiz application featuring real-time scoring and SQL Server integration.</p>
             <div className="flex gap-2">
               <span className="text-[10px] px-2 py-1 bg-white/5 rounded-md text-gray-400">ASP.NET Core</span>
