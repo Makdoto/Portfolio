@@ -1,6 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 
 export default function Home() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [is2ndOpen, setIs2ndOpen] = useState(false);
+  const [is3rdOpen, setIs3rdOpen] = useState(false);
+
   return (
     // <div className="min-h-screen bg-[#050505] text-white p-6 font-sans selection:bg-purple-500/30">
     <div className="min-h-screen bg-transparent text-white p-6 p-6 font-sans selection:bg-purple-500/30">
@@ -188,12 +195,69 @@ export default function Home() {
 
 
       {/* Featured Projects Section */}
+      {/* Quiz Mo To */}
       <div className="md:col-span-3">
         <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
           <span className="text-orange-500">🚀</span> Featured Projects
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="group bg-[#121212]/60 backdrop-blur-xl border border-white/5 rounded-3xl p-6 hover:border-purple-500/30 transition-all shadow-xl">
+            <div className="flex justify-between items-start mb-4">
+              <div className="p-3 bg-purple-500/10 rounded-2xl text-purple-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+              </div>
+              {/* Change <a> to <button> for better accessibility */}
+              <button 
+                onClick={() => setIsOpen(true)}
+                className="text-gray-500 hover:text-white transition-colors cursor-pointer"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              </button>
+            </div>
+            <h3 className="text-xl font-bold mb-2">Quiz Mo&apos; To</h3>
+            <p className="text-gray-400 text-sm mb-4">A full-stack quiz application featuring real-time scoring and SQL Server integration.</p>
+            <div className="flex gap-2">
+              <span className="text-[10px] px-2 py-1 bg-white/5 rounded-md text-gray-400">ASP.NET Core</span>
+              <span className="text-[10px] px-2 py-1 bg-white/5 rounded-md text-gray-400">Next.js</span>
+            </div>
+          </div>
+          {/* --- MODAL OVERLAY --- */}
+            {isOpen && (
+              <div 
+                className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-in fade-in duration-200"
+                onClick={() => setIsOpen(false)} // Close when clicking outside the image
+              >
+                <div 
+                  className="relative max-w-5xl w-full bg-[#1a1a1a] border border-white/10 rounded-2xl overflow-hidden shadow-2xl"
+                  onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image itself
+                >
+                  {/* Close Button */}
+                  <button 
+                    onClick={() => setIsOpen(false)}
+                    className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-black/80 text-white rounded-full transition-colors"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                  </button>
+
+                  {/* Your Project Screenshot */}
+                  <div className="p-2">
+                    <Image 
+                      src="/3.jpg" 
+                      alt="Project Screenshot" 
+                      width={1200}
+                      height={800}
+                      className="w-full h-auto rounded-lg"
+                      priority
+                    />
+                  </div>
+                  
+                  <div className="p-4 bg-black/20 border-t border-white/5">
+                    <p className="text-sm text-gray-400">Project Preview: Quiz Mo&apos; To Design</p>
+                  </div>
+                </div>
+              </div>
+            )}
+          {/* <div className="group bg-[#121212]/60 backdrop-blur-xl border border-white/5 rounded-3xl p-6 hover:border-purple-500/30 transition-all shadow-xl">
             <div className="flex justify-between items-start mb-4">
               <div className="p-3 bg-purple-500/10 rounded-2xl text-purple-400">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
@@ -208,16 +272,23 @@ export default function Home() {
               <span className="text-[10px] px-2 py-1 bg-white/5 rounded-md text-gray-400">ASP.NET Core</span>
               <span className="text-[10px] px-2 py-1 bg-white/5 rounded-md text-gray-400">Next.js</span>
             </div>
-          </div>
-          
+          </div> */}
+          {/* Inventory Tracking System */}
           <div className="group bg-[#121212]/60 backdrop-blur-xl border border-white/5 rounded-3xl p-6 hover:border-purple-500/30 transition-all shadow-xl">
             <div className="flex justify-between items-start mb-4">
               <div className="p-3 bg-purple-500/10 rounded-2xl text-purple-400">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
               </div>
-              <a href="#" className="text-gray-500 hover:text-white transition-colors">
+              {/* <a href="#" className="text-gray-500 hover:text-white transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-              </a>
+              </a> */}
+              {/* Change <a> to <button> for better accessibility */}
+              <button 
+                onClick={() => setIs2ndOpen(true)}
+                className="text-gray-500 hover:text-white transition-colors cursor-pointer"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              </button>              
             </div>
             <h3 className="text-xl font-bold mb-2">Inventory Tracking System</h3>
             <p className="text-gray-400 text-sm mb-4">A self made sales and inventory system featuring real-time tracking of sales and stocks using Android Studio and Microsoft SQL Server.</p>
@@ -226,7 +297,104 @@ export default function Home() {
               <span className="text-[10px] px-2 py-1 bg-white/5 rounded-md text-gray-400">Microsoft SQL Server</span>
             </div>
           </div>
+          {/* --- MODAL OVERLAY --- */}
+            {is2ndOpen && (
+              <div 
+                className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-in fade-in duration-200"
+                onClick={() => setIs2ndOpen(false)} // Close when clicking outside the image
+              >
+                <div 
+                  className="relative max-w-5xl w-full bg-[#1a1a1a] border border-white/10 rounded-2xl overflow-hidden shadow-2xl"
+                  onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image itself
+                >
+                  {/* Close Button */}
+                  <button 
+                    onClick={() => setIs2ndOpen(false)}
+                    className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-black/80 text-white rounded-full transition-colors"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                  </button>
+
+                  {/* Your Project Screenshot */}
+                  <div className="p-2">
+                    <Image 
+                      src="/1.jpg" 
+                      alt="Project Screenshot" 
+                      width={1200}
+                      height={800}
+                      className="w-full h-auto rounded-lg"
+                      priority
+                    />
+                  </div>
+                  
+                  <div className="p-4 bg-black/20 border-t border-white/5">
+                    <p className="text-sm text-gray-400">Project Preview: Inventory Tracking System Design</p>
+                  </div>
+                </div>
+              </div>
+            )}
           {/* Add more project cards here */}
+          <div className="group bg-[#121212]/60 backdrop-blur-xl border border-white/5 rounded-3xl p-6 hover:border-purple-500/30 transition-all shadow-xl">
+            <div className="flex justify-between items-start mb-4">
+              <div className="p-3 bg-purple-500/10 rounded-2xl text-purple-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+              </div>
+              {/* <a href="#" className="text-gray-500 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              </a> */}
+              {/* Change <a> to <button> for better accessibility */}
+              <button 
+                onClick={() => setIs3rdOpen(true)}
+                className="text-gray-500 hover:text-white transition-colors cursor-pointer"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              </button>
+            </div>
+            <h3 className="text-xl font-bold mb-2">Asset Management System</h3>
+            <p className="text-gray-400 text-sm mb-4">An asset management web application for company&apos;s assets using ReactJS, Vue, NextJS, and Microsoft SQL Server.</p>
+            <div className="flex gap-2">
+              <span className="text-[10px] px-2 py-1 bg-white/5 rounded-md text-gray-400">ReactJS</span>
+              <span className="text-[10px] px-2 py-1 bg-white/5 rounded-md text-gray-400">Vue</span>
+              <span className="text-[10px] px-2 py-1 bg-white/5 rounded-md text-gray-400">NextJS</span>
+              <span className="text-[10px] px-2 py-1 bg-white/5 rounded-md text-gray-400">Microsoft SQL Server</span>
+            </div>
+          </div>
+          {/* --- MODAL OVERLAY --- */}
+            {is3rdOpen && (
+              <div 
+                className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-in fade-in duration-200"
+                onClick={() => setIs3rdOpen(false)} // Close when clicking outside the image
+              >
+                <div 
+                  className="relative max-w-5xl w-full bg-[#1a1a1a] border border-white/10 rounded-2xl overflow-hidden shadow-2xl"
+                  onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image itself
+                >
+                  {/* Close Button */}
+                  <button 
+                    onClick={() => setIs3rdOpen(false)}
+                    className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-black/80 text-white rounded-full transition-colors"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                  </button>
+
+                  {/* Your Project Screenshot */}
+                  <div className="p-2">
+                    <Image 
+                      src="/5.png" 
+                      alt="Project Screenshot" 
+                      width={1200}
+                      height={800}
+                      className="w-full h-auto rounded-lg"
+                      priority
+                    />
+                  </div>
+                  
+                  <div className="p-4 bg-black/20 border-t border-white/5">
+                    <p className="text-sm text-gray-400">Project Preview: Asset Management System Design</p>
+                  </div>
+                </div>
+              </div>
+            )}
         </div>
       </div>
 
